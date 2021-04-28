@@ -1,15 +1,28 @@
 
 const initialState = {
-	movies : []
+	movies : [
+		{
+			id: 1,
+			title: "movie1"
+		},
+		{
+			id: 2,
+			title: "movie2"
+		}
+	]
 }
+
 
 function reducer(state = initialState, action) {
 
 	switch (action.type) {
-		case 'LOG':
-			console.log(action.message)
-			break;
 	
+		case 'MOVIES':
+			const newState = {
+				...state,
+				movies: action.movies
+			}
+			return newState;
 		default:
 			break;
 	}
