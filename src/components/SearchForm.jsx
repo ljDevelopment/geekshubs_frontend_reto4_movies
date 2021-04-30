@@ -56,7 +56,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
 
 	movies: (title) => {
-		getMovies()
+		getMovies(title)
 			.then(m =>
 				dispatch({
 					type: 'MOVIES',
