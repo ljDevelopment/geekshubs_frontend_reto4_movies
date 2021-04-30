@@ -10,7 +10,7 @@ class MovieList extends React.Component {
 			<div className='movies'>
 				<ul>
 				{this.props.movies.map((c, i) => (
-					<li>{c.title}</li>
+					<li key={c.id}>{c.title}</li>
 							))}
 				</ul>
 			</div>

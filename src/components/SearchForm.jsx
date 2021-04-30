@@ -40,10 +40,9 @@ class SearchForm extends React.Component {
 		return (
 			<div className='board'>
 				<form className="addCardForm" onSubmit={this.onSubmitHandle}>
-				<input type="text" className="newCardName" placeholder="Enter a title for this card..." onKeyUp={(e) => this.onKeyUpHandle(e)} />
+				<input type="text" className="newCardName" placeholder="Your input..." onKeyUp={(e) => this.onKeyUpHandle(e)} />
 				<div className="addCardFormButtons">
-					<input type="submit" className="addCardSubmit" value="Add card" />
-					<input type="button" className="addCardCloseButton" value="X" onClick={() => this.setShowForm(false)} />
+					<input type="submit" className="addCardSubmit" value="Search" />
 				</div>
 			</form>
 			</div>

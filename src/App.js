@@ -12,7 +12,9 @@ function App(props) {
 			<header className="App-header">
 				<SearchForm />
 			</header>
-			<MovieList />
+			<div className="App-Result">
+				<MovieList />
+			</div>
 		</div>
 	);
 }
