@@ -5,7 +5,7 @@ import './MovieList.css';
 
 class MovieList extends React.Component {
 
-	getImgPath = (movie) => {
+	renderMovieImg = (movie) => {
 		const imgName = (movie.poster_path || movie.backdrop_path);
 		return (
 			imgName &&
@@ -23,7 +23,7 @@ class MovieList extends React.Component {
 						<header>{c.title}</header>
 						<div class="subtitle">({c.original_title})</div>
 						<div class="subtitle2">{c.release_date}</div>
-						<div>{this.getImgPath(c)}</div>
+						<div>{this.renderMovieImg(c)}</div>
 						<article class="overflowed">{c.overview}</article>
 					</li>
 				))}
