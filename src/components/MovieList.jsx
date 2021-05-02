@@ -5,7 +5,13 @@ import './MovieList.css';
 
 class MovieList extends React.Component {
 
-
+	getImgPath = (movie) => {
+		const imgName = (movie.poster_path || movie.backdrop_path);
+		return (
+			imgName &&
+				<img src={'https://www.themoviedb.org/t/p/w94_and_h141_bestv2/' + imgName }/>
+		);
+	}
 
 	render() {
 		console.log(this.props.movies);
@@ -17,10 +23,10 @@ class MovieList extends React.Component {
 						<header>{c.title}</header>
 						<div class="subtitle">({c.original_title})</div>
 						<div class="subtitle2">{c.release_date}</div>
-						<div><img src={'https://www.themoviedb.org/t/p/w94_and_h141_bestv2/' + (c.poster_path || c.backdrop_path)} /></div>
+						<div>{this.getImgPath(c)}</div>
 						<article class="overflowed">{c.overview}</article>
 					</li>
-							))}
+				))}
 				</ul>
 			</div>
 		)
