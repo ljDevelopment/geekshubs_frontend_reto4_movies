@@ -19,12 +19,12 @@ class MovieList extends React.Component {
 			<div className='movies'>
 				<ul>
 				{this.props.movies.map((c, i) => (
-					<li key={c.id} class="movie-card">
+					<li key={c.id} className="movie-card">
 						<header>{c.title}</header>
-						<div class="subtitle">({c.original_title})</div>
-						<div class="subtitle2">{c.release_date}</div>
+						<div className="subtitle">({c.original_title})</div>
+						<div className="subtitle2">{c.release_date}</div>
 						<div>{this.renderMovieImg(c)}</div>
-						<article class="overflowed">{c.overview}</article>
+						<article className="overflowed">{c.overview}</article>
 					</li>
 				))}
 				</ul>

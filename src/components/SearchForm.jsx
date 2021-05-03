@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './SearchForm.css';
-import getMovies from '../utils/TheMovieDb';
+import {getMovies, getPopular} from '../utils/TheMovieDb';
 
 const escapeKeyCode = 27;
 
@@ -35,14 +35,21 @@ class SearchForm extends React.Component {
 			value: e.target.value
 		});
 	};
+
+	onPopular = () => {
+		this.props.popular(10);
+	}
 	
 	render() {
 		return (
-			<div className='board'>
-				<form className="addCardForm" onSubmit={this.onSubmitHandle}>
-				<input type="text" className="newCardName" placeholder="Your query..." onKeyUp={(e) => this.onKeyUpHandle(e)} />
-				<div className="addCardFormButtons">
-					<input type="submit" className="addCardSubmit" value="Search" />
+			<div>
+				<form onSubmit={this.onSubmitHandle}>
+				<input type="text" placeholder="Your query..." onKeyUp={(e) => this.onKeyUpHandle(e)} />
+				<div>
+					<input type="submit" value="Search" />
+				</div>
+				<div>
+					<input type="button" value="Popular" onClick={(e) => this.onPopular()} />
 				</div>
 			</form>
 			</div>
@@ -61,6 +68,16 @@ const mapDispatchToProps = (dispatch) => ({
 				dispatch({
 					type: 'MOVIES',
 					movies: m
+				})
+			);
+	},
+	popular: (count) => {
+		count = count || 10;
+		getPopular()
+			.then(m =>
+				dispatch({
+					type: 'MOVIES',
+					movies: m.slice(0, count)
 				})
 			);
 	},
