@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './SearchForm.css';
-import {getMovies, getPopular} from '../utils/TheMovieDb';
+import {getMovies, getPopular, getGenres} from '../utils/TheMovieDb';
 
 const escapeKeyCode = 27;
 
@@ -36,10 +36,6 @@ class SearchForm extends React.Component {
 		});
 	};
 
-	onPopular = () => {
-		this.props.popular(10);
-	}
-	
 	render() {
 		return (
 			<div>
@@ -49,7 +45,10 @@ class SearchForm extends React.Component {
 					<input type="submit" value="Search" />
 				</div>
 				<div>
-					<input type="button" value="Popular" onClick={(e) => this.onPopular()} />
+					<input type="button" value="Popular" onClick={(e) => this.props.popular(10)} />
+				</div>
+				<div>
+					<input type="button" value="Genres" onClick={(e) => this.props.genres()} />
 				</div>
 			</form>
 			</div>
@@ -80,6 +79,12 @@ const mapDispatchToProps = (dispatch) => ({
 					movies: m.slice(0, count)
 				})
 			);
+	},
+	genres: () => {
+		getGenres()
+		.then(g =>
+			console.log
+			)
 	},
 });
 

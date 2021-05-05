@@ -14,7 +14,6 @@ class MovieList extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.movies);
 		return (
 			<div className='movies'>
 				<ul>

@@ -3,10 +3,18 @@ import React from 'react'
 import { connect } from 'react-redux'
 import SearchForm from './components/SearchForm'
 import MovieList from './components/MovieList'
+import {getGenres} from './utils/TheMovieDb';
 
 
-function App(props) {
-	return (
+class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.props.genres(getGenres());
+	  }
+
+	render() {
+		console.log(this.props);
+		return (
 		<div className="App">
 			<header className="App-header">
 				<SearchForm />
@@ -14,16 +22,19 @@ function App(props) {
 			<div className="App-Result">
 				<MovieList />
 			</div>
-		</div>
-	);
+		</div>);
+	}
 }
 
 const mapStateToProps = state => ({ state: state })
 const mapDisptchToProps = (dispatch) => ({
-	log: () => dispatch({
-		type: 'LOG',
-		message: 'message from app'
-	})
+	genres: (genres) => {
+		genres.then(g => dispatch({
+				type: 'GENRES',
+				genres: g
+			})
+		);
+	},
 })
 
 const connectedApp = connect(

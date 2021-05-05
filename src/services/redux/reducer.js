@@ -10,11 +10,15 @@ function reducer(state = initialState, action) {
 	switch (action.type) {
 	
 		case 'MOVIES':
-			const newState = {
+			return {
 				...state,
 				movies: action.movies
 			}
-			return newState;
+		case 'GENRES':
+			return  {
+				...state,
+				genres: action.genres
+			}
 		default:
 			break;
 	}
