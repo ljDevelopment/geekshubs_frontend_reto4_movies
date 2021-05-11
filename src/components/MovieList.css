@@ -1,0 +1,47 @@
+.movies > ul {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: center;
+	list-style: none;
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 5px;
+}
+
+.movie-card {
+	margin: 5px;
+	padding: 10px;
+	width: 23%;
+	box-sizing: border-box;
+	min-width: 200px;
+	border: thin rgb(163, 163, 163) solid;
+	height: 350px;
+	display: grid;
+	grid-template-rows: repeat(4, auto) 3fr;
+	grid-row-gap: 2px;
+	border-radius: 5px;
+	background-color: rgb(238, 238, 238);
+	box-shadow: 4px 4px 2px dimgrey
+}
+
+.movie-card > header {
+	font-weight: bold;
+}
+
+.movie-card > .subtitle {
+	color: grey;
+	font-size: 0.7em;
+}
+
+.movie-card > .subtitle2 {
+	color: darkgray;
+	font-size: 0.8em;
+}
+
+.movie-card > article {
+	text-align: left;
+}
+.overflowed {
+	overflow: scroll;
+}
