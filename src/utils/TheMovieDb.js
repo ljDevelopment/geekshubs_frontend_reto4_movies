@@ -23,4 +23,16 @@ const getPopular = async () => {
 	return movies;
 }
 
-export {getMovies, getPopular}
+const getGenres = async () => {
+
+	const url = 'https://api.themoviedb.org/3/genre/movie/list?api_key=' 
+		+ api_key 
+		;
+	console.log(url);
+	let res = await fetch(url);
+	res = await res.json();
+	const genres = res.genres;
+	return genres;
+}
+
+export {getMovies, getPopular, getGenres}

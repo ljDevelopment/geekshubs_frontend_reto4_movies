@@ -45,3 +45,8 @@
 .overflowed {
 	overflow: scroll;
 }
+
+.genres {
+	font-size: 0.6em;
+	color: grey;
+}

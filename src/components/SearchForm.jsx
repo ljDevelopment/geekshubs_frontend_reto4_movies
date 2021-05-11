@@ -36,10 +36,6 @@ class SearchForm extends React.Component {
 		});
 	};
 
-	onPopular = () => {
-		this.props.popular(10);
-	}
-	
 	render() {
 		return (
 			<div>
@@ -49,7 +45,7 @@ class SearchForm extends React.Component {
 					<input type="submit" value="Search" />
 				</div>
 				<div>
-					<input type="button" value="Popular" onClick={(e) => this.onPopular()} />
+					<input type="button" value="Popular" onClick={(e) => this.props.popular(10)} />
 				</div>
 			</form>
 			</div>
@@ -58,6 +54,7 @@ class SearchForm extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
+	genres: state.genres
 });
 
 const mapDispatchToProps = (dispatch) => ({

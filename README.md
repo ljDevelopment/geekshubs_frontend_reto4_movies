@@ -9,10 +9,11 @@
 ### Evaluation notes
   - Javascript ES6.
   - No action dispatcher.
-  - Extra: REACT-REDUX.
+  - EXTRA: REACT-REDUX.
   - API provides searching by original title. [(ref)](https://developers.themoviedb.org/3/search/search-movies)
   - API doesn't provides searching by overview nor title ([ref](https://www.themoviedb.org/talk/5ecd66645be00e001f957e33))
   - Dealing with movies without image.
+  - EXTRA: Showing genres.
 
 ## Available Scripts
 

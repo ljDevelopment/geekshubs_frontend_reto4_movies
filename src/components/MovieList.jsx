@@ -9,22 +9,26 @@ class MovieList extends React.Component {
 		const imgName = (movie.poster_path || movie.backdrop_path);
 		return (
 			imgName &&
-				<img src={'https://www.themoviedb.org/t/p/w94_and_h141_bestv2/' + imgName }/>
+				<img alt={imgName} src={'https://www.themoviedb.org/t/p/w94_and_h141_bestv2/' + imgName }/>
 		);
 	}
 
 	render() {
-		console.log(this.props.movies);
 		return (
 			<div className='movies'>
 				<ul>
 				{this.props.movies.map((c, i) => (
-					<li key={c.id} className="movie-card">
+					<li key={"movie" + c.id} className="movie-card">
 						<header>{c.title}</header>
 						<div className="subtitle">({c.original_title})</div>
 						<div className="subtitle2">{c.release_date}</div>
 						<div>{this.renderMovieImg(c)}</div>
 						<article className="overflowed">{c.overview}</article>
+						<div className="genres">
+						{c.genre_ids.map((g, j) => (
+							<span key={"genre" + c.id + "_" + g}>{this.props.genres[g] + " "}</span>
+						))}
+						</div>
 					</li>
 				))}
 				</ul>
@@ -35,7 +39,8 @@ class MovieList extends React.Component {
 
 
 const mapStateToProps = (state) => ({
-	movies: state.movies
+	movies: state.movies,
+	genres: state.genres
 });
 
 const mapDispatchToProps = (dispatch) => ({
