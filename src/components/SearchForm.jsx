@@ -37,7 +37,6 @@ class SearchForm extends React.Component {
 	};
 
 	render() {
-		console.log(this.props.genres);
 		return (
 			<div>
 				<form onSubmit={this.onSubmitHandle}>
@@ -48,9 +47,6 @@ class SearchForm extends React.Component {
 				<div>
 					<input type="button" value="Popular" onClick={(e) => this.props.popular(10)} />
 				</div>
-				<div>
-					{this.props.genres.map((g) => <span>{g.name}</span>)}
-				</div>
 			</form>
 			</div>
 		)
@@ -58,7 +54,7 @@ class SearchForm extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-	genres: state.genres || []
+	genres: state.genres
 });
 
 const mapDispatchToProps = (dispatch) => ({

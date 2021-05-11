@@ -15,9 +15,15 @@ function reducer(state = initialState, action) {
 				movies: action.movies
 			}
 		case 'GENRES':
+			var genres = {};
+			for (let i = action.genres.length - 1; i >= 0; i--)
+			{
+				const e = action.genres[i];
+				genres[e.id] = e.name;
+			}
 			return  {
 				...state,
-				genres: action.genres
+				genres: genres 
 			}
 		default:
 			break;
