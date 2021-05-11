@@ -22,6 +22,7 @@ class MovieList extends React.Component {
 						<header>{c.title}</header>
 						<div className="subtitle">({c.original_title})</div>
 						<div className="subtitle2">{c.release_date}</div>
+						<div className="subtitle2">{c.vote_average + " avg"} of {c.vote_count + " votes"}</div>
 						<div>{this.renderMovieImg(c)}</div>
 						<article className="overflowed">{c.overview}</article>
 						<div className="genres">
