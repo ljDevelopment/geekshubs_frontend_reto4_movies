@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './SearchForm.css';
-import {getMovies, getPopular, getGenres} from '../utils/TheMovieDb';
+import {getMovies, getPopular} from '../utils/TheMovieDb';
 
 const escapeKeyCode = 27;
 

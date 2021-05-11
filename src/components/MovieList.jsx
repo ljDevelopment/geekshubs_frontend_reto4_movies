@@ -9,7 +9,7 @@ class MovieList extends React.Component {
 		const imgName = (movie.poster_path || movie.backdrop_path);
 		return (
 			imgName &&
-				<img src={'https://www.themoviedb.org/t/p/w94_and_h141_bestv2/' + imgName }/>
+				<img alt={imgName} src={'https://www.themoviedb.org/t/p/w94_and_h141_bestv2/' + imgName }/>
 		);
 	}
 
