@@ -35,4 +35,24 @@ const getGenres = async () => {
 	return genres;
 }
 
-export {getMovies, getPopular, getGenres}
+const moviesByGenre = async (genreId) => {
+	
+	if (!genreId || genreId < 0)
+	{
+		return new Promise((resolve, reject) => {
+			  resolve([]);
+		  });
+	}
+
+	const url = 'https://api.themoviedb.org/3/discover/movie?api_key=' 
+		+ api_key 
+		+ "&with_genres=" + genreId
+		;
+	console.log(url);
+	let res = await fetch(url);
+	res = await res.json();
+	const movies = res.results;
+	return movies;
+}
+
+export {getMovies, getPopular, getGenres, moviesByGenre}

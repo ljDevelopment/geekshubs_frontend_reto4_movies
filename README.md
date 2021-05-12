@@ -14,6 +14,7 @@
   - API doesn't provides searching by overview nor title ([ref](https://www.themoviedb.org/talk/5ecd66645be00e001f957e33))
   - Dealing with movies without image.
   - EXTRA: Showing genres.
+  - EXTRA: List movies by genre.
   - EXTRA: Showing votes.
 
 ## Available Scripts
