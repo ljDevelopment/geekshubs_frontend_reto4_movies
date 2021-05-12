@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './SearchForm.css';
-import {getMovies, getPopular} from '../utils/TheMovieDb';
+import {getMovies, getPopular, moviesByGenre} from '../utils/TheMovieDb';
 
 const escapeKeyCode = 27;
 
@@ -47,6 +47,15 @@ class SearchForm extends React.Component {
 				<div>
 					<input type="button" value="Popular" onClick={(e) => this.props.popular(10)} />
 				</div>
+				<div>
+					<select onChange={(e) => this.props.genre(e.target.value)}>
+						<option key="genre_none" value="-1">---</option>
+						{Object.entries(this.props.genres).map((e) => (
+							
+							<option key={"genre_" + e[0]} value={e[0]}>{e[1]}</option>
+						))}
+					</select> 
+				</div>
 			</form>
 			</div>
 		)
@@ -54,7 +63,7 @@ class SearchForm extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-	genres: state.genres
+	genres: state.genres || {}
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -75,6 +84,24 @@ const mapDispatchToProps = (dispatch) => ({
 				dispatch({
 					type: 'MOVIES',
 					movies: m.slice(0, count)
+				})
+			);
+	},
+	genre: (genreId) => {
+		
+		if (!genreId || genreId < 0)
+		{
+			dispatch({
+				type: 'MOVIES',
+				movies: []
+			});
+			return;	
+		}
+		moviesByGenre(genreId)
+			.then(m =>
+				dispatch({
+					type: 'MOVIES',
+					movies: m
 				})
 			);
 	},
